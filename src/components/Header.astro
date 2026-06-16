@@ -1,0 +1,25 @@
+---
+// کامپوننت هدر / ناوبری سایت
+const navItems = [
+  { href: '#services', label: 'خدمات' },
+  { href: '#courses', label: 'دوره‌ها' },
+  { href: '#podcast', label: 'پادکست' },
+  { href: '#journal', label: 'مقالات' },
+  { href: '#about', label: 'درباره ما' },
+];
+---
+
+<header class="navbar fixed top-0 inset-x-0 z-50">
+  <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-2.5">
+      <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-pink-500 to-pink-300 flex items-center justify-center text-white font-black text-base shadow-md" style="box-shadow:0 4px 14px rgba(244,63,107,0.4)">د</span>
+      <span class="font-black text-lg" style="color:#1a1a2e">Dopamine Center</span>
+    </a>
+    <ul class="hidden md:flex items-center gap-7 text-sm font-medium" style="color:#4a4a6a">
+      {navItems.map(item => (
+        <li><a href={item.href} class="hover:text-pink-500 transition-colors">{item.label}</a></li>
+      ))}
+    </ul>
+    <a href="#contact" class="btn-main text-white text-sm font-bold px-6 py-2.5 rounded-xl cursor-pointer" style="color:#fff">تماس با ما</a>
+  </nav>
+</header>

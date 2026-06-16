@@ -1,0 +1,81 @@
+---
+// بخش مقالات و ژورنال‌های علمی
+import { journalArticles, journalFilters } from '../lib/content';
+---
+
+<section id="journal" class="py-24 px-6 light-alt">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-14 reveal">
+      <p class="text-xs font-bold tracking-widest uppercase mb-3" style="color:#f43f6b">دانش علمی</p>
+      <h2 class="text-3xl md:text-4xl font-black" style="color:#1a1a2e">مقالات و ژورنال‌های بین‌المللی</h2>
+      <p class="mt-3 text-sm max-w-md mx-auto" style="color:#6b6b8e">پژوهش‌های علمی دنیا در حوزه روانشناسی، به زبان ساده</p>
+    </div>
+
+    <!-- فیلترها -->
+    <div class="flex flex-wrap justify-center gap-3 mb-12 reveal">
+      {journalFilters.map((f, i) => (
+        <button
+          data-filter={f.key}
+          class:list={['jf-btn', 'text-sm', 'font-semibold', 'px-5', 'py-2', 'rounded-full', 'border', i === 0 && 'active']}
+          style={i === 0 ? 'border-color:transparent' : 'border-color:rgba(255,182,193,0.4);color:#6b6b8e'}
+        >
+          {f.label}
+        </button>
+      ))}
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="jgrid">
+      {journalArticles.map((a, i) => (
+        <article
+          data-tag={a.dataTag}
+          class:list={[a.dark ? 'journal-dark' : 'journal-card', 'rounded-2xl', 'p-6', 'reveal']}
+          style={i > 0 ? `transition-delay:.${i % 3}s` : undefined}
+        >
+          <div class="flex items-center justify-between mb-4">
+            <span class={`${a.tagClass} text-xs font-bold px-3 py-1 rounded-full`}>{a.tag}</span>
+            <span class="text-xs" style={`color:${a.dark ? '#6b6b8e' : '#9b9bb8'}`}>{a.source}</span>
+          </div>
+          <h3 class="font-black text-base leading-snug mb-3" style={`color:${a.dark ? '#fff' : '#1a1a2e'}`}>{a.title}</h3>
+          <p class="text-sm leading-relaxed mb-5" style={`color:${a.dark ? '#9b9bb8' : '#6b6b8e'}`}>{a.desc}</p>
+          <div class="flex items-center justify-between pt-4" style={`border-top:1px solid ${a.dark ? 'rgba(255,255,255,0.08)' : 'rgba(255,182,193,0.25)'}`}>
+            <span class="text-xs" style={`color:${a.dark ? '#6b6b8e' : '#9b9bb8'}`}>{a.author}</span>
+            <a href="#" class={`text-xs font-bold inline-flex items-center gap-1 ${a.dark ? 'text-pink-400 hover:text-pink-300' : 'text-pink-500 hover:text-pink-600'}`}>مطالعه ←</a>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="text-center mt-12 reveal">
+      <a href="#" class="btn-outline font-bold px-8 py-3 rounded-xl text-sm inline-flex items-center gap-2">
+        همه مقالات
+        <svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  // فیلتر مقالات بر اساس تگ
+  const buttons = document.querySelectorAll<HTMLElement>('.jf-btn');
+  const articles = document.querySelectorAll<HTMLElement>('#jgrid article');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tag = btn.dataset.filter;
+
+      buttons.forEach(b => {
+        b.classList.remove('active');
+        b.style.borderColor = 'rgba(255,182,193,0.4)';
+        b.style.color = '#6b6b8e';
+      });
+
+      btn.classList.add('active');
+      btn.style.borderColor = 'transparent';
+      btn.style.color = '#fff';
+
+      articles.forEach(el => {
+        el.style.display = (tag === 'all' || el.dataset.tag === tag) ? 'block' : 'none';
+      });
+    });
+  });
+</script>

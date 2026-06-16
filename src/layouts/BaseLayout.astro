@@ -1,0 +1,101 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+}
+const {
+  title = 'Dopamine Center | مشاوره، آموزش و پادکست',
+  description = 'Dopamine Center؛ مرکز تخصصی مشاوره روانشناسی، آموزش مهارت‌های زندگی و پادکست‌های انگیزشی به زبان فارسی.',
+  keywords = 'مشاوره روانشناسی, آموزش مهارت زندگی, پادکست فارسی, Dopamine Center, انگیزه, رشد فردی',
+} = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="color-scheme" content="light" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="keywords" content={keywords} />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://dopcenter.netlify.app" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fa_IR" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <slot />
+  <style is:global>
+    :root {
+      color-scheme: light !important;
+      forced-color-adjust: none;
+    }
+    html { color-scheme: light !important; scroll-behavior: smooth; }
+    @media (prefers-color-scheme: dark) {
+      :root { color-scheme: light !important; }
+      html { background: #fff8f9 !important; }
+      body { background: #fff8f9 !important; color: #1a1a2e !important; }
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Vazirmatn', sans-serif; background: #fff8f9; color: #1a1a2e; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #fff8f9; }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(#ff85a1, #f43f6b); border-radius: 10px; }
+    .glow-pink { position:absolute; border-radius:50%; filter:blur(80px); pointer-events:none; z-index:0; }
+    .navbar { background:rgba(255,255,255,0.82); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border-bottom:1px solid rgba(255,182,193,0.25); box-shadow:0 1px 24px rgba(244,63,107,0.06); }
+    .hero-section { background: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(255,182,193,0.5) 0%, transparent 70%), radial-gradient(ellipse 60% 50% at 50% 100%, rgba(255,133,161,0.25) 0%, transparent 70%), #fff8f9; }
+    .glass-card { background:rgba(255,255,255,0.75); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border:1px solid rgba(255,182,193,0.35); box-shadow:0 4px 24px rgba(244,63,107,0.07), 0 1px 4px rgba(0,0,0,0.04); transition:transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease; }
+    .glass-card:hover { transform:translateY(-5px); box-shadow:0 16px 40px rgba(244,63,107,0.14), 0 2px 8px rgba(0,0,0,0.06); border-color:rgba(255,133,161,0.55); }
+    .btn-main { background:linear-gradient(135deg,#f43f6b 0%,#ff85a1 100%); box-shadow:0 6px 24px rgba(244,63,107,0.35), 0 2px 6px rgba(244,63,107,0.2); transition:all 0.25s ease; border:none; }
+    .btn-main:hover { transform:translateY(-2px); box-shadow:0 10px 32px rgba(244,63,107,0.45); }
+    .btn-outline { background:rgba(255,255,255,0.8); border:1.5px solid rgba(244,63,107,0.3); color:#f43f6b; transition:all 0.25s ease; }
+    .btn-outline:hover { background:#fff; border-color:#f43f6b; box-shadow:0 4px 16px rgba(244,63,107,0.15); transform:translateY(-1px); }
+    .badge { background:linear-gradient(135deg,rgba(255,214,224,0.9),rgba(255,240,244,0.9)); border:1px solid rgba(255,133,161,0.4); color:#e0295a; backdrop-filter:blur(8px); }
+    .podcast-active { background:linear-gradient(135deg,rgba(255,240,244,0.95),rgba(255,255,255,0.95)); border:1.5px solid rgba(244,63,107,0.2); box-shadow:0 4px 20px rgba(244,63,107,0.1); }
+    .podcast-plain { background:rgba(255,255,255,0.8); border:1px solid rgba(255,182,193,0.3); }
+    .podcast-plain:hover { border-color:rgba(244,63,107,0.3); box-shadow:0 4px 16px rgba(244,63,107,0.08); }
+    .play-main { background:linear-gradient(135deg,#f43f6b,#ff85a1); box-shadow:0 4px 16px rgba(244,63,107,0.4); }
+    .play-outline { background:rgba(255,255,255,0.9); border:2px solid rgba(244,63,107,0.3); }
+    .play-outline:hover { border-color:#f43f6b; }
+    .dark-section { background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#1a1a2e 100%); }
+    .light-alt { background:linear-gradient(180deg,#fff0f4 0%,#fff8f9 100%); }
+    .course-card { background:#fff; border:1px solid rgba(255,182,193,0.3); box-shadow:0 2px 16px rgba(244,63,107,0.06); transition:transform 0.28s ease, box-shadow 0.28s ease; overflow:hidden; }
+    .course-card:hover { transform:translateY(-6px); box-shadow:0 20px 48px rgba(244,63,107,0.15); }
+    .journal-card { background:rgba(255,255,255,0.9); border:1px solid rgba(255,182,193,0.3); box-shadow:0 2px 12px rgba(244,63,107,0.05); transition:transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
+    .journal-card:hover { transform:translateY(-4px); box-shadow:0 12px 32px rgba(244,63,107,0.12); border-color:rgba(244,63,107,0.3); }
+    .stat-box { background:rgba(255,255,255,0.7); border:1px solid rgba(255,182,193,0.35); backdrop-filter:blur(8px); }
+    .reveal { opacity:0; transform:translateY(30px); transition:opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+    .prog-track { background:rgba(244,63,107,0.15); border-radius:99px; }
+    .prog-fill { height:100%; background:linear-gradient(to left,#f43f6b,#ff85a1); border-radius:99px; }
+    .jf-btn { transition:all 0.2s ease; cursor:pointer; }
+    .jf-btn.active { background:linear-gradient(135deg,#f43f6b,#ff85a1); color:#fff; border-color:transparent; box-shadow:0 4px 14px rgba(244,63,107,0.3); }
+    .glow-divider { height:1px; background:linear-gradient(to right,transparent,rgba(244,63,107,0.4),transparent); }
+    .tag-pink { background:rgba(255,214,224,0.8); color:#c4254a; border:1px solid rgba(255,133,161,0.3); }
+    .tag-dark { background:rgba(26,26,46,0.07); color:#1a1a2e; border:1px solid rgba(26,26,46,0.1); }
+    .tag-hot  { background:linear-gradient(135deg,#f43f6b,#ff85a1); color:#fff; }
+    @keyframes shine { 0% { background-position:200% center; } 100% { background-position:-200% center; } }
+    @keyframes sparkle { 0%,100% { opacity:0; transform:scale(0.4) rotate(0deg); } 50% { opacity:1; transform:scale(1.2) rotate(180deg); } }
+    @keyframes brainFloat { 0%,100% { transform:translateY(0px) rotate(-3deg); filter:drop-shadow(0 6px 18px rgba(244,63,107,0.35)); } 50% { transform:translateY(-12px) rotate(3deg); filter:drop-shadow(0 18px 30px rgba(244,63,107,0.5)); } }
+    .sparkle-wrap { position:relative; display:inline-block; width:0; height:0; vertical-align:top; }
+    .sp { position:absolute; font-size:1.1rem; color:#f43f6b; animation:sparkle 1.8s ease-in-out infinite; filter:drop-shadow(0 0 4px rgba(244,63,107,0.8)); pointer-events:none; }
+    .sp1 { top:-28px; left:-60px; animation-delay:0s; font-size:1rem; }
+    .sp2 { top:-10px; left:-20px; animation-delay:0.5s; font-size:0.7rem; color:#ff85a1; }
+    .sp3 { top:-32px; left:10px; animation-delay:0.9s; font-size:0.85rem; }
+    .sp4 { top:-8px; left:-45px; animation-delay:1.3s; font-size:0.6rem; color:#ffb3c6; }
+    @media (max-width:768px) { #brain-float { display:none; } }
+  </style>
+  <script>
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>

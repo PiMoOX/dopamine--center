@@ -1,0 +1,47 @@
+---
+import { stats } from '../lib/content';
+---
+<section class="hero-section relative pt-32 pb-28 px-6 text-center overflow-hidden">
+  <div class="glow-pink" style="width:500px;height:300px;background:rgba(255,133,161,0.22);top:-80px;left:50%;transform:translateX(-50%)"></div>
+  <div class="glow-pink" style="width:250px;height:250px;background:rgba(255,214,224,0.3);top:120px;right:-60px"></div>
+  <div class="glow-pink" style="width:200px;height:200px;background:rgba(255,214,224,0.25);top:160px;left:-40px"></div>
+
+  <!-- مغز شناور -->
+  <div id="brain-float" aria-hidden="true" style="position:absolute;top:28px;left:calc(50% + 175px);width:165px;height:165px;z-index:10;pointer-events:none;animation:brainFloat 4s ease-in-out infinite;">
+    <img src="/images/brain.png" alt="" width="165" height="165" style="width:165px;height:165px;object-fit:contain;display:block;filter:drop-shadow(0 5px 14px rgba(120,40,70,0.22)) drop-shadow(0 2px 4px rgba(50,20,80,0.12));"/>
+  </div>
+
+  <div class="relative z-10 max-w-3xl mx-auto">
+    <span class="badge inline-block text-xs font-bold px-5 py-2 rounded-full mb-7 tracking-wide">
+      🌸 رشد واقعی از اینجا شروع می‌شه
+    </span>
+    <h1 class="font-black leading-tight mb-6" style="font-size:clamp(2.4rem,6vw,4rem);color:#1a1a2e;line-height:1.2">
+      <span style="background:linear-gradient(100deg,#c42b52 0%,#f43f6b 30%,#ffb3c6 50%,#f43f6b 70%,#c42b52 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shine 2.4s linear infinite reverse;filter:drop-shadow(0 0 12px rgba(244,63,107,0.3));display:inline-block;">ذهنت رو</span><br />
+      <span style="background:linear-gradient(100deg,#f43f6b 0%,#ff85a1 30%,#fff 50%,#ff85a1 70%,#f43f6b 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shine 2.4s linear infinite;filter:drop-shadow(0 0 18px rgba(244,63,107,0.45));position:relative;display:inline-block;">بازسازی کن</span>
+      <span class="sparkle-wrap" aria-hidden="true">
+        <span class="sp sp1">✦</span>
+        <span class="sp sp2">✦</span>
+        <span class="sp sp3">✦</span>
+        <span class="sp sp4">✦</span>
+      </span>
+    </h1>
+    <p class="text-lg leading-relaxed max-w-xl mx-auto mb-10" style="color:#6b6b8e">
+      مشاوره تخصصی، دوره‌های آموزشی و پادکست‌های کاربردی<br />همه در یک جا، به زبان فارسی.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+      <a href="#services" class="btn-main text-white font-bold px-9 py-3.5 rounded-xl text-base cursor-pointer" style="color:#fff">شروع کن</a>
+      <a href="#podcast" class="btn-outline font-bold px-9 py-3.5 rounded-xl text-base flex items-center justify-center gap-2 cursor-pointer">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        پادکست‌ها
+      </a>
+    </div>
+    <div class="grid grid-cols-3 gap-4 max-w-md mx-auto">
+      {stats.map(stat => (
+        <div class="stat-box rounded-2xl py-4 px-3 text-center">
+          <p class="text-2xl font-black" style="color:#1a1a2e">{stat.value}</p>
+          <p class="text-xs mt-1" style="color:#9b9bb8">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

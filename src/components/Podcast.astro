@@ -1,0 +1,58 @@
+---
+// بخش پادکست
+import { podcasts } from '../lib/content';
+---
+
+<section id="podcast" class="py-24 px-6" style="background:#fff">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-14 reveal">
+      <p class="text-xs font-bold tracking-widest uppercase mb-3" style="color:#f43f6b">پادکست</p>
+      <h2 class="text-3xl md:text-4xl font-black" style="color:#1a1a2e">آخرین قسمت‌ها</h2>
+      <p class="mt-3 text-sm" style="color:#6b6b8e">رایگان، هر هفته، برای ذهنی بهتر</p>
+    </div>
+    <div class="flex flex-col gap-4">
+      {podcasts.map((p, i) => (
+        p.active ? (
+          <div class="podcast-active rounded-2xl p-5 flex items-center gap-5 reveal">
+            <button class="play-main w-14 h-14 rounded-full flex-shrink-0 flex items-center justify-center" style="cursor:pointer">
+              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <span class="text-xs font-bold text-pink-500">{p.number}</span>
+                  <h4 class="font-black mt-0.5" style="color:#1a1a2e">{p.title}</h4>
+                  <p class="text-sm mt-1" style="color:#6b6b8e">{p.desc}</p>
+                </div>
+                <span class="text-xs whitespace-nowrap" style="color:#9b9bb8">{p.duration}</span>
+              </div>
+              <div class="mt-3 h-1.5 prog-track rounded-full overflow-hidden">
+                <div class="prog-fill h-full" style={`width:${p.progress}%`}></div>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div class="podcast-plain rounded-2xl p-5 flex items-center gap-5 reveal transition-all" style={`transition-delay:.${i}s`}>
+            <button class="play-outline w-14 h-14 rounded-full flex-shrink-0 flex items-center justify-center transition-all" style="cursor:pointer">
+              <svg class="w-6 h-6 text-pink-400" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <div class="flex-1 min-w-0 flex items-start justify-between gap-3">
+              <div>
+                <span class="text-xs font-bold text-pink-500">{p.number}</span>
+                <h4 class="font-black mt-0.5" style="color:#1a1a2e">{p.title}</h4>
+                <p class="text-sm mt-1" style="color:#6b6b8e">{p.desc}</p>
+              </div>
+              <span class="text-xs whitespace-nowrap" style="color:#9b9bb8">{p.duration}</span>
+            </div>
+          </div>
+        )
+      ))}
+    </div>
+    <div class="text-center mt-10 reveal">
+      <a href="#" class="btn-outline font-bold px-8 py-3 rounded-xl text-sm inline-flex items-center gap-2">
+        همه قسمت‌ها
+        <svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
