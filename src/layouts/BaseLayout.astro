@@ -27,7 +27,10 @@ const {
   <meta property="og:locale" content="fa_IR" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- لینک فونت وزیرمتن برای متن‌های بلند -->
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <!-- لینک فونت یاس برای تیترها -->
+  <link href="https://fonts.googleapis.com/css2?family=Yas:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
 </head>
 <body>
   <slot />
@@ -43,7 +46,16 @@ const {
       body { background: #fff8f9 !important; color: #1a1a2e !important; }
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Vazirmatn', sans-serif; background: #fff8f9; color: #1a1a2e; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      background: #fff8f9;
+      color: #1a1a2e;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4, .font-heading {
+      font-family: 'Yas', sans-serif;
+    }
     ::-webkit-scrollbar { width: 5px; }
     ::-webkit-scrollbar-track { background: #fff8f9; }
     ::-webkit-scrollbar-thumb { background: linear-gradient(#ff85a1, #f43f6b); border-radius: 10px; }
