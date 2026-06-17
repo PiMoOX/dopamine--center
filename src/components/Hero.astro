@@ -1,6 +1,7 @@
 ---
-import { stats } from '../lib/content';
+// بخش هیرو
 ---
+
 <section class="hero-section relative pt-32 pb-28 px-6 text-center overflow-hidden">
   <div class="glow-pink" style="width:500px;height:300px;background:rgba(255,133,161,0.22);top:-80px;left:50%;transform:translateX(-50%)"></div>
   <div class="glow-pink" style="width:250px;height:250px;background:rgba(255,214,224,0.3);top:120px;right:-60px"></div>
@@ -36,12 +37,18 @@ import { stats } from '../lib/content';
       </a>
     </div>
     <div class="grid grid-cols-3 gap-4 max-w-md mx-auto">
-      {stats.map(stat => (
-        <div class="stat-box rounded-2xl py-4 px-3 text-center">
-          <p class="text-2xl font-black" style="color:#1a1a2e">{stat.value}</p>
-          <p class="text-xs mt-1" style="color:#9b9bb8">{stat.label}</p>
-        </div>
-      ))}
+      <div class="stat-box rounded-2xl py-4 px-3 text-center">
+        <p class="text-2xl font-black" style="color:#1a1a2e">+۵۰۰</p>
+        <p class="text-xs mt-1" style="color:#9b9bb8">مشاوره موفق</p>
+      </div>
+      <div class="stat-box rounded-2xl py-4 px-3 text-center">
+        <p class="text-2xl font-black" style="color:#1a1a2e">+۱۲۰</p>
+        <p class="text-xs mt-1" style="color:#9b9bb8">دوره آموزشی</p>
+      </div>
+      <div class="stat-box rounded-2xl py-4 px-3 text-center">
+        <p class="text-2xl font-black" style="color:#1a1a2e">+۸۰</p>
+        <p class="text-xs mt-1" style="color:#9b9bb8">قسمت پادکست</p>
+      </div>
     </div>
   </div>
 </section>
