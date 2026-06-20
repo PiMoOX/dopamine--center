@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';  // ← این خط رو حتماً داشته باش
 import Services from '../components/Services.astro';
 import Courses from '../components/Courses.astro';
 import Podcast from '../components/Podcast.astro';
@@ -13,7 +14,10 @@ import Footer from '../components/Footer.astro';
 <BaseLayout>
   <Header />
   
-  <!-- ===== اسلایدر بنر ===== -->
+  <!-- ===== هیرو (همون قبلی) ===== -->
+  <Hero />  <!-- ← این خط رو حتماً داشته باش -->
+  
+  <!-- ===== اسلایدر بنر (زیر هیرو) ===== -->
   <section class="banner-slider py-8 px-4 bg-gradient-to-b from-white to-pink-50">
     <div class="max-w-6xl mx-auto relative" x-data="{ active: 0 }">
       <div class="relative overflow-hidden rounded-2xl shadow-2xl aspect-[16/9]">
@@ -70,7 +74,7 @@ import Footer from '../components/Footer.astro';
       </div>
     </div>
   </section>
-  
+
   <div class="glow-divider"></div>
   <Services />
   <Courses />
